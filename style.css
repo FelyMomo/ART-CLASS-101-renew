@@ -1,1 +1,610 @@
+/* ==========================================================================
+   ART CLASS 101 - GLOBAL STYLESHEET
+   ========================================================================== */
+
+/* --- Import Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,300;0,400;0,700;1,400&family=Allison&family=Inria+Serif:wght@400;700&family=Instrument+Serif&display=swap');
+
+/* 1. RESET & BASE STYLES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Alegreya Sans', sans-serif;
+    background-color: #f8f6f0;
+    color: #333333;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+}
+
+/* 2. CUSTOM FONTS */
+.font-script { font-family: 'Allison', cursive; }
+.font-nav { font-family: 'Inria Serif', serif; }
+.font-serif { font-family: 'Instrument Serif', serif; }
+.font-sans { font-family: 'Alegreya Sans', sans-serif; }
+
+/* 3. BRAND COLORS */
+:root {
+    --brand-dark: #1b261b;
+    --brand-green: #2d3b2d;
+    --brand-accent: #4a5d4a;
+    --brand-cream: #ece6d6;
+    --brand-sand: #e8dfd1;
+    --brand-gold: #c59b27;
+}
+
+/* 4. CUSTOM BACKGROUNDS & SHADOWS */
+.bg-hero-overlay {
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.55),
+        rgba(0, 0, 0, 0.25)
+    );
+}
+
+.card-shadow {
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.08);
+}
+
+/* 5. HEADER & NAVIGATION */
+header {
+    width: 100%;
+    min-height: 80px;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    display: block;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: #ffffff;
+}
+
+header > div:first-child {
+    width: 100%;
+    max-width: 1280px;
+    height: 80px;
+    min-height: 80px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 0 0 auto;
+    min-width: max-content;
+    white-space: nowrap;
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    color: var(--brand-dark);
+    cursor: pointer;
+}
+
+.logo-icon {
+    width: 38px;
+    height: 38px;
+    flex: 0 0 38px;
+    border-radius: 50%;
+    border: 2px solid var(--brand-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+}
+
+header > div:first-child > button:first-child {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+header > div:first-child > button:first-child img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-left: auto;
+    flex-shrink: 0;
+}
+
+header nav button {
+    white-space: nowrap;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+nav ul li a {
+    font-family: 'Inria Serif', serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--brand-green);
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: var(--brand-accent);
+    border-bottom: 2px solid var(--brand-accent);
+}
+
+header a,
+header button,
+.logo {
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+/* 6. PAGE MANAGEMENT */
+.page { display: none; }
+.page.active { display: block; }
+
+/* 7. HERO SECTION */
+.hero-home {
+    position: relative;
+    width: 100%;
+    min-height: 600px;
+    height: 80vh;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+        url('https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    padding: 60px 7%;
+    color: #ffffff;
+    overflow: visible;
+}
+
+.hero-content {
+    width: 100%;
+    max-width: 750px;
+    min-width: 0;
+}
+
+.hero-title {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    font-family: 'Allison', cursive;
+    font-size: clamp(4.5rem, 9vw, 8rem);
+    line-height: 1.05;
+    white-space: normal;
+    overflow-wrap: normal;
+    word-break: normal;
+    margin-bottom: 25px;
+    color: var(--brand-cream);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.hero-subtitle {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    line-height: 1.2;
+    margin-bottom: 10px;
+    font-weight: 400;
+    color: var(--brand-cream);
+}
+
+.hero-description {
+    font-family: 'Alegreya Sans', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    opacity: 0.95;
+}
+
+.btn-cta {
+    background-color: #ffffff;
+    color: var(--brand-dark);
+    padding: 12px 32px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.btn-cta:hover {
+    background-color: var(--brand-dark);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* 8. COURSE BANNERS */
+.category-hero {
+    position: relative;
+    width: 100%;
+    min-height: 320px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+    color: #ffffff;
+    text-align: center;
+    overflow: visible;
+}
+
+.hero-gd {
+    background:
+        linear-gradient(rgba(80, 40, 20, 0.6), rgba(80, 40, 20, 0.6)),
+        url('https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+}
+
+.hero-painting {
+    background:
+        linear-gradient(rgba(30, 60, 40, 0.6), rgba(30, 60, 40, 0.6)),
+        url('https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+}
+
+.hero-dd {
+    background:
+        linear-gradient(rgba(40, 50, 60, 0.6), rgba(40, 50, 60, 0.6)),
+        url('https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+}
+
+.category-hero-title {
+    width: 100%;
+    font-family: 'Allison', cursive;
+    font-size: clamp(4rem, 10vw, 9rem);
+    line-height: 1.1;
+    color: #ffffff;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    white-space: normal;
+    overflow-wrap: break-word;
+}
+
+/* 9. SECTION LAYOUTS */
+.section { padding: 70px 80px; }
+.section-dark { background-color: #273827; color: #ffffff; }
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: 2.8rem;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.section-subtitle {
+    font-family: 'Alegreya Sans', sans-serif;
+    font-size: 0.95rem;
+    color: #666666;
+}
+
+.section-dark .section-subtitle { color: #cccccc; }
+
+/* 10. COURSE CARDS */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.course-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.course-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.course-content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.author {
+    font-size: 0.8rem;
+    color: #777777;
+    margin-bottom: 8px;
+}
+
+.course-card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #222222;
+    margin-bottom: 16px;
+    line-height: 1.3;
+}
+
+.course-meta {
+    display: flex;
+    gap: 20px;
+    font-size: 0.8rem;
+    color: #666666;
+    margin-bottom: 24px;
+    margin-top: auto;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-view-more {
+    align-self: flex-end;
+    background: none;
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    color: #444444;
+    text-transform: uppercase;
+}
+
+.btn-view-more:hover { color: #273827; }
+
+/* 11. STATISTICS BAR */
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    text-align: center;
+}
+
+.stat-number {
+    font-family: 'Instrument Serif', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: #dfb185;
+}
+
+/* 12. STUDENT FEEDBACK */
+.feedback-card {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+.quote-mark {
+    font-size: 3rem;
+    line-height: 1;
+    color: #a5b8a5;
+    font-family: Georgia, serif;
+}
+
+.feedback-text {
+    font-size: 0.85rem;
+    color: #555555;
+    line-height: 1.6;
+    margin: 15px 0 20px;
+}
+
+.feedback-author {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #222222;
+}
+
+/* 13. COURSE OVERVIEW */
+.overview-card {
+    background: #ffffff;
+    padding: 50px;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+    text-align: center;
+}
+
+.overview-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: 2.8rem;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.overview-desc {
+    font-size: 0.95rem;
+    color: #555555;
+    max-width: 800px;
+    margin: 0 auto 30px;
+    line-height: 1.7;
+}
+
+/* 14. CALL TO ACTION */
+.cta-box {
+    background-color: #273827;
+    color: #ffffff;
+    padding: 50px;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.cta-box h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 2rem;
+    margin-bottom: 12px;
+}
+
+.cta-box p {
+    font-size: 0.9rem;
+    color: #dddddd;
+    margin-bottom: 25px;
+}
+
+/* 15. FOOTER */
+footer {
+    background-color: var(--brand-dark);
+    color: #ffffff;
+    font-family: 'Alegreya Sans', sans-serif;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-col h4 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.footer-col p {
+    color: #bbbbbb;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: 10px; }
+
+.footer-links a {
+    color: #bbbbbb;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover { color: #ffffff; }
+
+.contact-info {
+    color: #bbbbbb;
+    line-height: 1.8;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    color: #888888;
+    font-size: 0.75rem;
+}
+
+/* 16. RESPONSIVE LAYOUT */
+@media (max-width: 900px) {
+    header > div:first-child {
+        padding: 0 20px;
+    }
+
+    header nav {
+        gap: 14px;
+    }
+
+    header nav button {
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+    }
+
+    .logo { font-size: 1rem; }
+}
+
+@media (max-width: 767px) {
+    header > div:first-child {
+        height: 75px;
+        min-height: 75px;
+        padding: 0 16px;
+    }
+
+    header nav { display: none; }
+
+    #mobile-menu-btn { display: block; }
+
+    .hero-home {
+        min-height: 480px;
+        height: auto;
+        padding: 60px 25px;
+    }
+
+    .hero-content { max-width: 100%; }
+
+    .hero-title {
+        font-size: clamp(4rem, 16vw, 6rem);
+        line-height: 1.05;
+    }
+
+    .hero-subtitle { font-size: 1.6rem; }
+
+    .category-hero {
+        min-height: 250px;
+        padding: 40px 15px;
+    }
+
+    .category-hero-title {
+        font-size: clamp(3.5rem, 15vw, 5.5rem);
+    }
+
+    .section { padding: 45px 20px; }
+
+    .grid-3 { grid-template-columns: 1fr; }
+
+    .stats-container { grid-template-columns: repeat(2, 1fr); }
+
+    .overview-card { padding: 30px 20px; }
+
+    footer { padding: 40px 20px 25px; }
+
+    .footer-grid { grid-template-columns: 1fr; }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+}
+
+
 
