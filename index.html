@@ -1,1 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Art Class 101 - Online Art Courses</title>
+
+    <!-- WEBSITE LOGO / FAVICON -->
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="./favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="./favicon-512x512.png">
+    <link rel="manifest" href="./site.webmanifest">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,300;0,400;0,700;1,400&family=Allison&family=Inria+Serif:wght@400;700&family=Instrument+Serif&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#1b261b',
+                            green: '#2d3b2d',
+                            accent: '#4a5d4a',
+                            cream: '#ece6d6',
+                            sand: '#e8dfd1',
+                            gold: '#c59b27'
+                        }
+                    },
+                    fontFamily: {
+                        script: ['Allison', 'cursive'],
+                        serif: ['"Instrument Serif"', 'serif'],
+                        nav: ['"Inria Serif"', 'serif'],
+                        sans: ['"Alegreya Sans"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- TOP NAVIGATION BAR -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-stone-200">
+
+        <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+
+            <!-- LOGO -->
+            <button onclick="navigateTo('home')" class="flex items-center gap-3 group text-left">
+
+                <img src="./Favicon Logo.png"
+                     alt="Art Class 101 Logo"
+                     class="w-10 h-10 object-contain">
+
+                <div>
+                    <span class="font-serif font-bold text-lg tracking-wider text-brand-dark block">
+                        ART CLASS 101
+                    </span>
+
+                    <span class="text-[10px] tracking-widest text-stone-500 uppercase block">
+                        The Creatives
+                    </span>
+                </div>
+
+            </button>
+
+            <!-- NAVIGATION LINKS -->
+            <nav class="hidden md:flex items-center gap-8 font-nav text-sm tracking-wider uppercase font-medium">
+
+                <button onclick="navigateTo('home')"
+                        class="nav-btn transition-colors hover:text-brand-green"
+                        data-page="home">
+                    Homepage
+                </button>
+
+                <button onclick="scrollToSection('about-section')"
+                        class="nav-btn transition-colors hover:text-brand-green">
+                    About Us
+                </button>
+
+                <button onclick="navigateTo('courses')"
+                        class="nav-btn transition-colors hover:text-brand-green"
+                        data-page="courses">
+                    Courses
+                </button>
+
+                <button onclick="scrollToSection('contact-footer')"
+                        class="nav-btn transition-colors hover:text-brand-green">
+                    Contacts
+                </button>
+
+            </nav>
+
+            <!-- MOBILE MENU TOGGLE -->
+            <button id="mobile-menu-btn"
+                    class="md:hidden text-stone-700 hover:text-brand-green p-2">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+
+        </div>
+
+        <!-- MOBILE NAVIGATION MENU -->
+        <div id="mobile-menu"
+             class="hidden md:hidden bg-white border-b border-stone-200 px-4 pt-2 pb-4 space-y-2 font-serif text-sm">
+
+            <button onclick="navigateTo('home'); toggleMobileMenu()"
+                    class="block w-full text-left py-2 hover:text-brand-green">
+                Homepage
+            </button>
+
+            <button onclick="scrollToSection('about-section'); toggleMobileMenu()"
+                    class="block w-full text-left py-2 hover:text-brand-green">
+                About Us
+            </button>
+
+            <button onclick="navigateTo('courses'); toggleMobileMenu()"
+                    class="block w-full text-left py-2 hover:text-brand-green">
+                Courses
+            </button>
+
+            <button onclick="scrollToSection('contact-footer'); toggleMobileMenu()"
+                    class="block w-full text-left py-2 hover:text-brand-green">
+                Contacts
+            </button>
+
+        </div>
+
+    </header>
+
+    <!-- MAIN PAGE CONTAINER -->
+    <main class="flex-grow">
+
+        <!-- ================= PAGE 1: HOMEPAGE ================= -->
+        <section id="page-home" class="page-view space-y-16 pb-16">
+
+            <!-- HERO BANNER -->
+            <div class="relative min-h-[540px] lg:min-h-[620px] flex items-center justify-start overflow-hidden bg-stone-900">
+
+                <img src="BackgroundWEB.jpg"
+                     alt="Artist painting in studio"
+                     class="absolute inset-0 w-full h-full object-cover object-center opacity-70">
+
+                <div class="absolute inset-0 bg-hero-overlay"></div>
+
+                <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-white z-10 w-full">
+
+                    <h1 class="font-script text-7xl sm:text-8xl lg:text-[186px] text-stone-100 mb-2 leading-none">
+                        Online Art <br> Courses
+                    </h1>
+
+                    <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl text-amber-100 font-light mb-6 tracking-wide">
+                        In every artwork, we tell stories
+                    </h2>
+
+                    <p class="max-w-xl text-stone-200 text-sm sm:text-base leading-relaxed mb-8 font-light">
+                        Discover your creativity with Art Class 101! Explore exciting art courses, learn new techniques, and bring your imagination to life. Every artist has a story to tell, and yours starts here!
+                    </p>
+
+                    <button onclick="navigateTo('courses')"
+                            class="bg-white text-brand-dark hover:bg-brand-sand px-8 py-3.5 rounded-full font-serif font-bold tracking-widest text-xs sm:text-sm uppercase transition-all transform hover:-translate-y-0.5 shadow-lg">
+                        I'm Interested
+                    </button>
+
+                </div>
+            </div>
+            <!-- COURSE SELECTION SECTION -->
+            <div id="about-section" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <div class="text-center mb-12">
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-2">
+                        Course Selection
+                    </h2>
+                    <p class="text-stone-600">
+                        Explore the Courses we Offer
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- COURSE CARD 1 -->
+                    <div class="bg-white rounded-2xl overflow-hidden card-shadow border border-stone-100 flex flex-col hover:shadow-xl transition-shadow">
+
+                        <img src="HalftoneEffect.gif"
+                             alt="Black and White Halftone Effect"
+                             class="h-48 w-full object-cover">
+
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <span class="text-xs text-stone-400 font-medium block mb-1">
+                                    by Ayeish Ansay
+                                </span>
+
+                                <h3 class="font-bold text-lg text-brand-dark mb-4">
+                                    How to Create Black and White Halftone Effect in Adobe Photoshop
+                                </h3>
+                            </div>
+
+                            <div>
+                                <div class="flex items-center justify-between text-xs text-stone-500 mb-4 pb-4 border-b border-stone-100">
+                                    <span><i class="fa-solid fa-video mr-1.5 text-brand-green"></i> 5 Videos</span>
+                                    <span><i class="fa-solid fa-users mr-1.5 text-brand-green"></i> 10 Participants</span>
+                                </div>
+
+                                <button onclick="navigateTo('graphic-design')"
+                                        class="w-full text-right font-serif text-xs font-bold tracking-wider text-brand-green hover:text-brand-dark uppercase">
+                                    View More &rarr;
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- COURSE CARD 2 -->
+                    <div class="bg-white rounded-2xl overflow-hidden card-shadow border border-stone-100 flex flex-col hover:shadow-xl transition-shadow">
+
+                        <img src="WatercolorWeb.gif"
+                             alt="Oil Paints"
+                             class="h-48 w-full object-cover">
+
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <span class="text-xs text-stone-400 font-medium block mb-1">
+                                    by Ezekiella Miniano
+                                </span>
+
+                                <h3 class="font-bold text-lg text-brand-dark mb-4">
+                                    How to Mix Oil Paints Together
+                                </h3>
+                            </div>
+
+                            <div>
+                                <div class="flex items-center justify-between text-xs text-stone-500 mb-4 pb-4 border-b border-stone-100">
+                                    <span><i class="fa-solid fa-video mr-1.5 text-brand-green"></i> 4 Videos</span>
+                                    <span><i class="fa-solid fa-users mr-1.5 text-brand-green"></i> 15 Participants</span>
+                                </div>
+
+                                <button onclick="navigateTo('painting')"
+                                        class="w-full text-right font-serif text-xs font-bold tracking-wider text-brand-green hover:text-brand-dark uppercase">
+                                    View More &rarr;
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- COURSE CARD 3 -->
+                    <div class="bg-white rounded-2xl overflow-hidden card-shadow border border-stone-100 flex flex-col hover:shadow-xl transition-shadow">
+
+                        <img src="Bodeh.gif"
+                             alt="Body Proportions"
+                             class="h-48 w-full object-cover">
+
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <span class="text-xs text-stone-400 font-medium block mb-1">
+                                    by Felicity Molina
+                                </span>
+
+                                <h3 class="font-bold text-lg text-brand-dark mb-4">
+                                    Guide on Drawing Body Proportions
+                                </h3>
+                            </div>
+
+                            <div>
+                                <div class="flex items-center justify-between text-xs text-stone-500 mb-4 pb-4 border-b border-stone-100">
+                                    <span><i class="fa-solid fa-video mr-1.5 text-brand-green"></i> 6 Videos</span>
+                                    <span><i class="fa-solid fa-users mr-1.5 text-brand-green"></i> 25 Participants</span>
+                                </div>
+
+                                <button onclick="navigateTo('digital-drawing')"
+                                        class="w-full text-right font-serif text-xs font-bold tracking-wider text-brand-green hover:text-brand-dark uppercase">
+                                    View More &rarr;
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- COURSE CARD 4 -->
+                    <div class="bg-white rounded-2xl overflow-hidden card-shadow border border-stone-100 flex flex-col hover:shadow-xl transition-shadow">
+
+                        <img src="GraphicDesign.gif"
+                             alt="Graphic Design"
+                             class="h-48 w-full object-cover">
+
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <span class="text-xs text-stone-400 font-medium block mb-1">
+                                    by Art Class 101
+                                </span>
+
+                                <h3 class="font-bold text-lg text-brand-dark mb-4">
+                                    Introduction to Graphic Design
+                                </h3>
+                            </div>
+
+                            <div>
+                                <div class="flex items-center justify-between text-xs text-stone-500 mb-4 pb-4 border-b border-stone-100">
+                                    <span><i class="fa-solid fa-video mr-1.5 text-brand-green"></i> 5 Videos</span>
+                                    <span><i class="fa-solid fa-users mr-1.5 text-brand-green"></i> 20 Participants</span>
+                                </div>
+
+                                <button onclick="navigateTo('graphic-design')"
+                                        class="w-full text-right font-serif text-xs font-bold tracking-wider text-brand-green hover:text-brand-dark uppercase">
+                                    View More &rarr;
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- COURSE CARD 5 -->
+                    <div class="bg-white rounded-2xl overflow-hidden card-shadow border border-stone-100 flex flex-col hover:shadow-xl transition-shadow">
+
+                        <img src="Painting.gif"
+                             alt="Painting"
+                             class="h-48 w-full object-cover">
+
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <span class="text-xs text-stone-400 font-medium block mb-1">
+                                    by Art Class 101
+                                </span>
+
+                                <h3 class="font-bold text-lg text-brand-dark mb-4">
+                                    Introduction to Traditional Painting
+                                </h3>
+                            </div>
+
+                            <div>
+                                <div class="flex items-center justify-between text-xs text-stone-500 mb-4 pb-4 border-b border-stone-100">
+                                    <span><i class="fa-solid fa-video mr-1.5 text-brand-green"></i> 4 Videos</span>
+                                    <span><i class="fa-solid fa-users mr-1.5 text-brand-green"></i> 15 Participants</span>
+                                </div>
+
+                                <button onclick="navigateTo('painting')"
+                                        class="w-full text-right font-serif text-xs font-bold tracking-wider text-brand-green hover:text-brand-dark uppercase">
+                                    View More &rarr;
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- COURSE CARD 6 -->
+                    <div class="bg-white rounded-2xl overflow-hidden card-shadow border border-stone-100 flex flex-col hover:shadow-xl transition-shadow">
+
+                        <img src="DigitalDrawing.gif"
+                             alt="Digital Drawing"
+                             class="h-48 w-full object-cover">
+
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <span class="text-xs text-stone-400 font-medium block mb-1">
+                                    by Art Class 101
+                                </span>
+
+                                <h3 class="font-bold text-lg text-brand-dark mb-4">
+                                    Introduction to Digital Drawing
+                                </h3>
+                            </div>
+
+                            <div>
+                                <div class="flex items-center justify-between text-xs text-stone-500 mb-4 pb-4 border-b border-stone-100">
+                                    <span><i class="fa-solid fa-video mr-1.5 text-brand-green"></i> 6 Videos</span>
+                                    <span><i class="fa-solid fa-users mr-1.5 text-brand-green"></i> 25 Participants</span>
+                                </div>
+
+                                <button onclick="navigateTo('digital-drawing')"
+                                        class="w-full text-right font-serif text-xs font-bold tracking-wider text-brand-green hover:text-brand-dark uppercase">
+                                    View More &rarr;
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- STATISTICS SECTION -->
+            <div class="bg-brand-green py-16 text-white">
+
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+
+                        <div>
+                            <h3 class="font-serif text-5xl font-bold mb-2">6</h3>
+                            <p class="text-sm text-amber-100 uppercase tracking-wider">
+                                Art Courses
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3 class="font-serif text-5xl font-bold mb-2">20+</h3>
+                            <p class="text-sm text-amber-100 uppercase tracking-wider">
+                                Lessons
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3 class="font-serif text-5xl font-bold mb-2">100+</h3>
+                            <p class="text-sm text-amber-100 uppercase tracking-wider">
+                                Students
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3 class="font-serif text-5xl font-bold mb-2">100%</h3>
+                            <p class="text-sm text-amber-100 uppercase tracking-wider">
+                                Creativity
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- STUDENT FEEDBACK SECTION -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <div class="text-center mb-12">
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-2">
+                        Student Feedback
+                    </h2>
+
+                    <p class="text-stone-600">
+                        What our students say about their learning experience
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- FEEDBACK 1 -->
+                    <div class="bg-white p-8 rounded-xl card-shadow">
+
+                        <div class="text-4xl text-brand-accent mb-3">
+                            <i class="fa-solid fa-quote-left"></i>
+                        </div>
+
+                        <p class="text-stone-600 text-sm leading-relaxed mb-6">
+                            Art Class 101 helped me explore my creativity and improve my artistic skills. The lessons are easy to understand and enjoyable!
+                        </p>
+
+                        <h4 class="font-bold text-brand-dark">
+                            Student 1
+                        </h4>
+                    </div>
+                    <!-- FEEDBACK 2 -->
+                    <div class="bg-white p-8 rounded-xl card-shadow">
+
+                        <div class="text-4xl text-brand-accent mb-3">
+                            <i class="fa-solid fa-quote-left"></i>
+                        </div>
+
+                        <p class="text-stone-600 text-sm leading-relaxed mb-6">
+                            I enjoyed learning different techniques and discovering new ways to express my ideas through art.
+                        </p>
+
+                        <h4 class="font-bold text-brand-dark">
+                            Student 2
+                        </h4>
+                    </div>
+                    <!-- FEEDBACK 3 -->
+                    <div class="bg-white p-8 rounded-xl card-shadow">
+
+                        <div class="text-4xl text-brand-accent mb-3">
+                            <i class="fa-solid fa-quote-left"></i>
+                        </div>
+
+                        <p class="text-stone-600 text-sm leading-relaxed mb-6">
+                            The courses made learning art more accessible and fun. I highly recommend exploring the lessons!
+                        </p>
+
+                        <h4 class="font-bold text-brand-dark">
+                            Student 3
+                        </h4>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Website Statistics Bar -->
+            <div class="bg-brand-dark text-white py-12 my-12">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <h3 class="font-serif text-6xl font-bold mb-2">Website Statistics</h3>
+                    <p class="text-stone-300 font-light text-xs sm:text-sm mb-10">Check out our active users, total courses, instructors, and satisfaction rate</p>
+
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                        <div class="p-4 border border-stone-700/50 rounded-xl bg-white/5">
+                            <span class="font-serif text-4xl sm:text-5xl font-bold text-amber-200 block mb-1">100+</span>
+                            <span class="text-xs sm:text-sm text-stone-300 uppercase tracking-wider font-medium">Active Students</span>
+                        </div>
+                        <div class="p-4 border border-stone-700/50 rounded-xl bg-white/5">
+                            <span class="font-serif text-4xl sm:text-5xl font-bold text-amber-200 block mb-1">25</span>
+                            <span class="text-xs sm:text-sm text-stone-300 uppercase tracking-wider font-medium">Total Courses</span>
+                        </div>
+                        <div class="p-4 border border-stone-700/50 rounded-xl bg-white/5">
+                            <span class="font-serif text-4xl sm:text-5xl font-bold text-amber-200 block mb-1">3</span>
+                            <span class="text-xs sm:text-sm text-stone-300 uppercase tracking-wider font-medium">Instructors</span>
+                        </div>
+                        <div class="p-4 border border-stone-700/50 rounded-xl bg-white/5">
+                            <span class="font-serif text-4xl sm:text-5xl font-bold text-amber-200 block mb-1">97%</span>
+                            <span class="text-xs sm:text-sm text-stone-300 uppercase tracking-wider font-medium">Satisfaction Rate</span>
+                        </div>
+                    </div>
+                </div>
+            </div>                  
+            <!-- Student Feedback Section -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-2">Student Feedback</h2>
+                    <p class="text-stone-600 font-light italic">What Students Say About Art Class 101</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Feedback 1 -->
+                    <div class="bg-white p-8 rounded-2xl card-shadow border border-stone-100 flex flex-col justify-between">
+                        <div>
+                            <span class="text-brand-green text-5xl font-serif block leading-none mb-4">“</span>
+                            <p class="text-stone-600 text-sm leading-relaxed mb-6">
+                                The instructors are really nice, and the lessons are easy to follow and understand. Being able to watch the lessons at my own pace without paying much attention to the deadlines helps me take my time without feeling rushed to pass an assignment or activity.
+                            </p>
+                        </div>
+                        <div class="border-t border-stone-100 pt-4">
+                            <h4 class="font-bold text-brand-dark text-sm">Boris Smith</h4>
+                            <span class="text-xs text-stone-400">Graphic Design Student</span>
+                        </div>
+                    </div>
+
+                    <!-- Feedback 2 -->
+                    <div class="bg-white p-8 rounded-2xl card-shadow border border-stone-100 flex flex-col justify-between">
+                        <div>
+                            <span class="text-brand-green text-5xl font-serif block leading-none mb-4">“</span>
+                            <p class="text-stone-600 text-sm leading-relaxed mb-6">
+                                ArtClass101 completely changed how I approach learning how to paint. It feels less like a strict classroom lecture and more like a cozy workshop with a professional mentor. Worth every session for creative hobbyists!
+                            </p>    
+                        </div>
+                        <div class="border-t border-stone-100 pt-4">
+                            <h4 class="font-bold text-brand-dark text-sm">Sophia Macano</h4>
+                            <span class="text-xs text-stone-400">Painting Student</span>
+                        </div>
+                    </div>
+
+                    <!-- Feedback 3 -->
+                    <div class="bg-white p-8 rounded-2xl card-shadow border border-stone-100 flex flex-col justify-between">
+                        <div>
+                            <span class="text-brand-green text-5xl font-serif block leading-none mb-4">“</span>
+                            <p class="text-stone-600 text-sm leading-relaxed mb-6">
+                                This website is packed with talented and gorgeous video production, but the user experience could use some streamlining. If you have the patience and dedication to self-pace, the skill growth is undeniable.
+                            </p>
+                        </div>
+                        <div class="border-t border-stone-100 pt-4">
+                            <h4 class="font-bold text-brand-dark text-sm">Rae Sterling</h4>
+                            <span class="text-xs text-stone-400">Digital Drawing Student</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Latest Lessons Section -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+                <div class="text-center mb-12">
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-2">Latest Lessons</h2>
+                    <p class="text-stone-600 font-light italic">Explore Recent Lessons from Different Courses</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-2xl overflow-hidden card-shadow border border-stone-100 flex flex-col">
+                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=600&auto=format&fit=crop" alt="Illustrator Pathfinder" class="h-44 w-full object-cover">
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <span class="text-xs text-stone-400 font-medium block mb-1">by Ayeish Ansay</span>
+                                <h3 class="font-bold text-base text-brand-dark mb-4">Tips and Tricks in Adobe Illustrator You Might Not Know</h3>
+                            </div>
+                            <button onclick="navigateTo('graphic-design')" class="text-right font-serif text-xs font-bold tracking-wider text-brand-green hover:text-brand-dark uppercase">View More &rarr;</button>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl overflow-hidden card-shadow border border-stone-100 flex flex-col">
+                        <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?q=80&w=600&auto=format&fit=crop" alt="Painting Forest" class="h-44 w-full object-cover">
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <span class="text-xs text-stone-400 font-medium block mb-1">by Ezekiella Miniano</span>
+                                <h3 class="font-bold text-base text-brand-dark mb-4">Guide On Painting A Beautiful Forest</h3>
+                            </div>
+                            <button onclick="navigateTo('painting')" class="text-right font-serif text-xs font-bold tracking-wider text-brand-green hover:text-brand-dark uppercase">View More &rarr;</button>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl overflow-hidden card-shadow border border-stone-100 flex flex-col">
+                        <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=600&auto=format&fit=crop" alt="Drawing Folds" class="h-44 w-full object-cover">
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <span class="text-xs text-stone-400 font-medium block mb-1">by Felicity Molina</span>
+                                <h3 class="font-bold text-base text-brand-dark mb-4">Drawing & Shading Fabric Folds</h3>
+                            </div>
+                            <button onclick="navigateTo('digital-drawing')" class="text-right font-serif text-xs font-bold tracking-wider text-brand-green hover:text-brand-dark uppercase">View More &rarr;</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ================= PAGE 2: COURSES OVERVIEW ================= -->
+        <section id="page-courses" class="page-view hidden py-12">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+                <div class="text-center mb-8">
+                    <h1 class="font-serif text-4xl sm:text-5xl font-bold text-brand-dark mb-3">Our Course Programs</h1>
+                    <p class="text-stone-600 font-light max-w-xl mx-auto">Select a path below to explore curated lessons, tutorials, and step-by-step videos.</p>
+                </div>
+
+                <!-- Graphic Design Block -->
+                <div class="bg-white rounded-3xl p-8 sm:p-12 card-shadow border border-stone-100 flex flex-col md:flex-row items-center gap-8">
+                    <div class="w-full md:w-1/2">
+                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=800&auto=format&fit=crop" alt="Graphic Design" class="rounded-2xl w-full h-64 object-cover">
+                    </div>
+                    <div class="w-full md:w-1/2 space-y-4">
+                       <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-2">GRAPHIC DESIGN</h2>
+                        <p class="text-stone-600 leading-relaxed text-sm">
+                            Discover the art of visual communication through colors, typography, and creative layouts. Learn how to combine different elements to create eye-catching designs, express ideas, and bring your imagination to life.
+                        </p>
+                        <button onclick="navigateTo('graphic-design')" class="bg-brand-green text-white hover:bg-brand-dark px-6 py-3 rounded-full font-serif text-xs font-bold tracking-widest uppercase transition-colors">
+                            Find Out More
+                        </button>
+                    </div>
+                </div>
+                <!-- Painting Block -->
+                <div class="bg-white rounded-3xl p-8 sm:p-12 card-shadow border border-stone-100 flex flex-col md:flex-row-reverse items-center gap-8">
+                    <div class="w-full md:w-1/2">
+                        <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?q=80&w=800&auto=format&fit=crop" alt="Painting" class="rounded-2xl w-full h-64 object-cover">
+                    </div>
+                    <div class="w-full md:w-1/2 space-y-4">
+                        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-2">PAINTING</h2>
+                        <p class="text-stone-600 leading-relaxed text-sm">
+                            Explore the beauty of colors and express your creativity through painting. Learn different techniques, experiment with various styles, and transform your ideas and emotions into meaningful works of art.
+                        </p>
+                        <button onclick="navigateTo('painting')" class="bg-brand-green text-white hover:bg-brand-dark px-6 py-3 rounded-full font-serif text-xs font-bold tracking-widest uppercase transition-colors">
+                            Find Out More
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Digital Drawing Block -->
+                <div class="bg-white rounded-3xl p-8 sm:p-12 card-shadow border border-stone-100 flex flex-col md:flex-row items-center gap-8">
+                    <div class="w-full md:w-1/2">
+                        <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=800&auto=format&fit=crop" alt="Digital Drawing" class="rounded-2xl w-full h-64 object-cover">
+                    </div>
+                    <div class="w-full md:w-1/2 space-y-4">
+                        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-2">DIGITAL DRAWING</h2>
+                        <p class="text-stone-600 leading-relaxed text-sm">
+                            Bring your imagination to life through digital art! Learn how to use digital tools, develop your drawing skills, and create unique illustrations. Whether you're a beginner or an aspiring artist, discover new ways to express your creativity.
+                        </p>
+                        <button onclick="navigateTo('digital-drawing')" class="bg-brand-green text-white hover:bg-brand-dark px-6 py-3 rounded-full font-serif text-xs font-bold tracking-widest uppercase transition-colors">
+                            Find Out More
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ================= PAGE 3: GRAPHIC DESIGN ================= -->
+        <section id="page-graphic-design" class="page-view hidden space-y-12 pb-16">
+            <!-- Hero Banner -->
+            <div class="relative h-72 sm:h-80 flex items-center justify-center overflow-hidden bg-stone-900">
+                <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=1600&auto=format&fit=crop" alt="Graphic Design" class="absolute inset-0 w-full h-full object-cover opacity-50">
+                <div class="absolute inset-0 bg-brand-dark/40"></div>
+                <h1 class="font-script text-7xl sm:text-8xl md:text-9xl text-white relative z-10 text-center">Graphic Design</h1>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+                <!-- About This Course -->
+                <div class="text-center max-w-3xl mx-auto space-y-3">
+                    <h2 class="font-serif text-xl sm:text-2xl font-bold text-brand-dark tracking-widest uppercase">About This Course</h2>
+                    <p class="text-stone-600 leading-relaxed text-sm sm:text-base">
+                        Discover the art of visual communication through colors, typography, and creative layouts. Learn how to combine different elements to create eye-catching designs, express ideas, and bring your imagination to life.
+                    </p>
+
+                </div>
+
+                <!-- Videos Grid Header -->
+                <div class="text-center">
+                    <h3 class="font-serif text-2xl font-bold text-brand-dark">Learn Through Our Online Course Videos</h3>
+                </div>
+
+                <!-- Course Videos Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Video 1 -->
+                    <div class="bg-white rounded-2xl overflow-hidden card-shadow border border-stone-100 flex flex-col">
+                        <img src="https://images.unsplash.com/photo-1542744094-3a31216914fc?q=80&w=600&auto=format&fit=crop" alt="Photoshop Tools" class="h-48 w-full object-cover">
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <span class="text-xs text-stone-400 font-medium block mb-1">by Ayeish Ansay</span>
+                                <h4 class="font-bold text-lg text-brand-dark mb-4">Discovering Adobe Photoshop Tools</h4>
+                            </div>
+                            <div>
+                                <div class="flex items-center justify-between text-xs text-stone-500 mb-4 pb-4 border-b border-stone-100">
+                                    <span><i class="fa-solid fa-play mr-1.5 text-brand-green"></i> 4 Videos</span>
+                                    <span><i class="fa-solid fa-user-group mr-1.5 text-brand-green"></i> 15 Participants</span>
+                                </div>
+                                <button onclick="openModal('Discovering Adobe Photoshop Tools')" class="w-full text-right font-serif text-xs font-bold tracking-wider text-brand-green hover:text-brand-dark uppercase">View More &rarr;</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Video 2 -->
+                    <div class="bg-white rounded-2xl overflow-hidden card-shadow border border-stone-100 flex flex-col">
+                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=600&auto=format&fit=crop" alt="Illustrator Beginner" class="h-48 w-full object-cover">
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <span class="text-xs text-stone-400 font-medium block mb-1">by Ayeish Ansay</span>
+                                <h4 class="font-bold text-lg text-brand-dark mb-4">A Beginner's Kit to Adobe Illustrator</h4>
+                            </div>
+                            <div>
+                                <div class="flex items-center justify-between text-xs text-stone-500 mb-4 pb-4 border-b border-stone-100">
+                                    <span><i class="fa-solid fa-play mr-1.5 text-brand-green"></i> 5 Videos</span>
+                                    <span><i class="fa-solid fa-user-group mr-1.5 text-brand-green"></i> 10 Participants</span>
+                                </div>
+                                <button onclick="openModal('A Beginner\'s Kit to Adobe Illustrator')" class="w-full text-right font-serif text-xs font-bold tracking-wider text-brand-green hover:text-brand-dark uppercase">View More &rarr;</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Video 3 -->
+                    <div class="bg-white rounded-2xl overflow-hidden card-shadow border border-stone-100 flex flex-col">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600&auto=format&fit=crop" alt="Illustrator Tips" class="h-48 w-full object-cover">
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <span class="text-xs text-stone-400 font-medium block mb-1">by Ayeish Ansay</span>
+                                <h4 class="font-bold text-lg text-brand-dark mb-4">Tips and Tricks in Adobe Illustrator You Might Not Know</h4>
+                            </div>
+                            <div>
+                                <div class="flex items-center justify-between text-xs text-stone-500 mb-4 pb-4 border-b border-stone-100">
+                                    <span><i class="fa-solid fa-play mr-1.5 text-brand-green"></i> 3 Videos</span>
+                                    <span><i class="fa-solid fa-user-group mr-1.5 text-brand-green"></i> 20 Participants</span>
+                                </div>
+                                <button onclick="openModal('Tips and Tricks in Adobe Illustrator You Might Not Know')" class="w-full text-right font-serif text-xs font-bold tracking-wider text-brand-green hover:text-brand-dark uppercase">View More &rarr;</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- CTA Banner -->
+                <div class="bg-brand-green rounded-3xl p-8 sm:p-12 text-center text-white space-y-4">
+                    <h3 class="font-serif text-2xl sm:text-3xl font-bold">Want to access more videos?</h3>
+                    <p class="max-w-xl mx-auto text-stone-200 text-sm">Create an ArtClass101 account to access exclusive content and different learning tools from your chosen courses! Don't worry, it's free!</p>
+                    <button onclick="openModal('Sign Up Form')" class="bg-white text-brand-dark hover:bg-brand-sand px-8 py-3.5 rounded-full font-serif font-bold text-xs sm:text-sm tracking-widest uppercase transition-colors inline-block mt-2">
+                        Sign Up Now
+                    </button>
+                </div>
+            </div>
+        </section>
+        <!-- ================= PAGE 4: PAINTING ================= -->
+        <section id="page-painting" class="page-view hidden space-y-12 pb-16">
+            <!-- Hero Banner -->
+            <div class="relative h-72 sm:h-80 flex items-center justify-center overflow-hidden bg-stone-900">
+                <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?q=80&w=1600&auto=format&fit=crop" alt="Painting" class="absolute inset-0 w-full h-full object-cover opacity-50">
+                <div class="absolute inset-0 bg-brand-dark/40"></div>
+                <h1 class="font-script text-7xl sm:text-8xl md:text-9xl text-white relative z-10 text-center">Painting</h1>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+                <!-- About This Course -->
+                <div class="text-center max-w-3xl mx-auto space-y-3">
+                    <h2 class="font-serif text-xl sm:text-2xl font-bold text-brand-dark tracking-widest uppercase">About This Course</h2>
+                    <p class="text-stone-600 leading-relaxed text-sm sm:text-base">
+                        Explore the beauty of colors and express your creativity through painting. Learn different techniques, experiment with various styles, and transform your ideas and emotions into meaningful works of art.
+                    </p>
+                </div>
+                <!-- Videos Grid Header -->
+                <div class="text-center">
+                    <h3 class="font-serif text-2xl font-bold text-brand-dark">Learn Through Our Online Course Videos</h3>
+                </div>
+                <!-- Course Videos Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Video 1 -->
+                    <div class="bg-white rounded-2xl overflow-hidden card-shadow border border-stone-100 flex flex-col">
+                        <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop" alt="Paint Brush Stroke" class="h-48 w-full object-cover">
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <span class="text-xs text-stone-400 font-medium block mb-1">by Ezekiella Miniano</span>
+                                <h4 class="font-bold text-lg text-brand-dark mb-4">Learn The Basics: Every paint deserves a brush stroke!</h4>
+                            </div>
+                            <div>
+                                <div class="flex items-center justify-between text-xs text-stone-500 mb-4 pb-4 border-b border-stone-100">
+                                    <span><i class="fa-solid fa-play mr-1.5 text-brand-green"></i> 4 Videos</span>
+                                    <span><i class="fa-solid fa-user-group mr-1.5 text-brand-green"></i> 15 Participants</span>
+                                </div>
+                                <button onclick="openModal('Learn The Basics: Every paint deserves a brush stroke!')" class="w-full text-right font-serif text-xs font-bold tracking-wider text-brand-green hover:text-brand-dark uppercase">View More &rarr;</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Video 2 -->
+                    <div class="bg-white rounded-2xl overflow-hidden card-shadow border border-stone-100 flex flex-col">
+                        <img src="https://images.unsplash.com/photo-1579783901586-d8827248356f?q=80&w=600&auto=format&fit=crop" alt="Acrylic Painting" class="h-48 w-full object-cover">
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <span class="text-xs text-stone-400 font-medium block mb-1">by Ezekiella Miniano</span>
+                                <h4 class="font-bold text-lg text-brand-dark mb-4">Acrylic Painting: How To Paint Animals</h4>
+                            </div>
+                            <div>
+                                <div class="flex items-center justify-between text-xs text-stone-500 mb-4 pb-4 border-b border-stone-100">
+                                    <span><i class="fa-solid fa-play mr-1.5 text-brand-green"></i> 5 Videos</span>
+                                    <span><i class="fa-solid fa-user-group mr-1.5 text-brand-green"></i> 10 Participants</span>
+                                </div>
+                                <button onclick="openModal('Acrylic Painting: How To Paint Animals')" class="w-full text-right font-serif text-xs font-bold tracking-wider text-brand-green hover:text-brand-dark uppercase">View More &rarr;</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Video 3 -->
+                    <div class="bg-white rounded-2xl overflow-hidden card-shadow border border-stone-100 flex flex-col">
+                        <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=600&auto=format&fit=crop" alt="Painting Perspective" class="h-48 w-full object-cover">
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <span class="text-xs text-stone-400 font-medium block mb-1">by Ezekiella Miniano</span>
+                                <h4 class="font-bold text-lg text-brand-dark mb-4">Different Perspective When It Comes To Painting</h4>
+                            </div>
+                            <div>
+                                <div class="flex items-center justify-between text-xs text-stone-500 mb-4 pb-4 border-b border-stone-100">
+                                    <span><i class="fa-solid fa-play mr-1.5 text-brand-green"></i> 3 Videos</span>
+                                    <span><i class="fa-solid fa-user-group mr-1.5 text-brand-green"></i> 20 Participants</span>
+                                </div>
+                                <button onclick="openModal('Different Perspective When It Comes To Painting')" class="w-full text-right font-serif text-xs font-bold tracking-wider text-brand-green hover:text-brand-dark uppercase">View More &rarr;</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- CTA Banner -->
+                <div class="bg-brand-green rounded-3xl p-8 sm:p-12 text-center text-white space-y-4">
+                    <h3 class="font-serif text-2xl sm:text-3xl font-bold">Want to access more videos?</h3>
+                    <p class="max-w-xl mx-auto text-stone-200 text-sm">Create an ArtClass101 account to access exclusive content and different learning tools from your chosen courses! Don't worry, it's free!</p>
+                    <button onclick="openModal('Sign Up Form')" class="bg-white text-brand-dark hover:bg-brand-sand px-8 py-3.5 rounded-full font-serif font-bold text-xs sm:text-sm tracking-widest uppercase transition-colors inline-block mt-2">
+                        Sign Up Now
+                    </button>
+                </div>
+            </div>
+        </section>
+        <!-- ================= PAGE 5: DIGITAL DRAWING ================= -->
+        <section id="page-digital-drawing" class="page-view hidden space-y-12 pb-16">
+            <!-- Hero Banner -->
+            <div class="relative h-72 sm:h-80 flex items-center justify-center overflow-hidden bg-stone-900">
+                <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=1600&auto=format&fit=crop" alt="Digital Drawing" class="absolute inset-0 w-full h-full object-cover opacity-50">
+                <div class="absolute inset-0 bg-brand-dark/40"></div>
+                <h1 class="font-script text-7xl sm:text-8xl md:text-9xl text-white relative z-10 text-center">Digital Drawing</h1>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+                <!-- About This Course -->
+                <div class="text-center max-w-3xl mx-auto space-y-3">
+                    <h2 class="font-serif text-xl sm:text-2xl font-bold text-brand-dark tracking-widest uppercase">About This Course</h2>
+                    <p class="text-stone-600 leading-relaxed text-sm sm:text-base">
+                        Bring your imagination to life through digital art! Learn how to use digital tools, develop your drawing skills, and create unique illustrations. Whether you're a beginner or an aspiring artist, discover new ways to express your creativity.
+                    </p>
+                </div>
+
+                <!-- Videos Grid Header -->
+                <div class="text-center">
+                    <h3 class="font-serif text-2xl font-bold text-brand-dark">Learn Through Our Online Course Videos</h3>
+                </div>
+
+                <!-- Course Videos Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Video 1 -->
+                    <div class="bg-white rounded-2xl overflow-hidden card-shadow border border-stone-100 flex flex-col">
+                        <img src="https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=600&auto=format&fit=crop" alt="Webcomics Thumbnail" class="h-48 w-full object-cover">
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <span class="text-xs text-stone-400 font-medium block mb-1">by Felicity Molina</span>
+                                <h4 class="font-bold text-lg text-brand-dark mb-4">Learn How To Plan & Thumbnail Your Webcomics Easily</h4>
+                            </div>
+                            <div>
+<!-- PAGE 5: DIGITAL DRAWING -->
+<section id="page-digital-drawing" class="page-view hidden space-y-12 pb-16">
+    <!-- Hero Banner -->
+    <div class="relative h-72 sm:h-80 flex items-center justify-center overflow-hidden bg-stone-900">
+        <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=1600&auto=format&fit=crop" alt="Digital Drawing" class="absolute inset-0 w-full h-full object-cover opacity-50">
+        <div class="absolute inset-0 bg-brand-dark/40"></div>
+        <h1 class="font-script text-7xl sm:text-8xl md:text-9xl text-white relative z-10 text-center">Digital Drawing</h1>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <!-- About This Course -->
+        <div class="text-center max-w-3xl mx-auto space-y-3">
+            <h2 class="font-serif text-xl sm:text-2xl font-bold text-brand-dark tracking-widest uppercase">About This Course</h2>
+            <p class="text-stone-600 leading-relaxed text-sm sm:text-base">
+                Bring your imagination to life through digital art! Learn how to use digital tools, develop your drawing skills, and create unique illustrations. Whether you're a beginner or an aspiring artist, discover new ways to express your creativity.
+            </p>
+        </div>
+
+        <!-- Videos Grid Header -->
+        <div class="text-center">
+            <h3 class="font-serif text-2xl font-bold text-brand-dark">Learn Through Our Online Course Videos</h3>
+        </div>
+
+        <!-- Course Videos Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Video 1 -->
+            <div class="bg-white rounded-2xl overflow-hidden card-shadow border border-stone-100 flex flex-col">
+                <img src="https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=600&auto=format&fit=crop" alt="Webcomics Thumbnail" class="h-48 w-full object-cover">
+                <div class="p-6 flex-grow flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs text-stone-400 font-medium block mb-1">by Felicity Molina</span>
+                        <h4 class="font-bold text-lg text-brand-dark mb-4">Learn How To Plan & Thumbnail Your Webcomics Easily</h4>
+                    </div>
+                    <div>
+                        <div class="flex items-center justify-between text-xs text-stone-500 mb-4 pb-4 border-b border-stone-100">
+                            <span><i class="fa-solid fa-play mr-1.5 text-brand-green"></i> 4 Videos</span>
+                            <span><i class="fa-solid fa-user-group mr-1.5 text-brand-green"></i> 15 Participants</span>
+                        </div>
+                        <button onclick="openModal('Learn How To Plan & Thumbnail Your Webcomics Easily')" class="w-full text-right font-serif text-xs font-bold tracking-wider text-brand-green hover:text-brand-dark uppercase">View More &rarr;</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video 2 -->
+            <div class="bg-white rounded-2xl overflow-hidden card-shadow border border-stone-100 flex flex-col">
+                <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=600&auto=format&fit=crop" alt="Character Design" class="h-48 w-full object-cover">
+                <div class="p-6 flex-grow flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs text-stone-400 font-medium block mb-1">by Felicity Molina</span>
+                        <h4 class="font-bold text-lg text-brand-dark mb-4">The Basics In Mastering Character Design</h4>
+                    </div>
+                    <div>
+                        <div class="flex items-center justify-between text-xs text-stone-500 mb-4 pb-4 border-b border-stone-100">
+                            <span><i class="fa-solid fa-play mr-1.5 text-brand-green"></i> 5 Videos</span>
+                            <span><i class="fa-solid fa-user-group mr-1.5 text-brand-green"></i> 10 Participants</span>
+                        </div>
+                        <button onclick="openModal('The Basics In Mastering Character Design')" class="w-full text-right font-serif text-xs font-bold tracking-wider text-brand-green hover:text-brand-dark uppercase">View More &rarr;</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video 3 -->
+            <div class="bg-white rounded-2xl overflow-hidden card-shadow border border-stone-100 flex flex-col">
+                <img src="https://images.unsplash.com/photo-1542744094-3a31216914fc?q=80&w=600&auto=format&fit=crop" alt="Photoshop Illustration" class="h-48 w-full object-cover">
+                <div class="p-6 flex-grow flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs text-stone-400 font-medium block mb-1">by Felicity Molina</span>
+                        <h4 class="font-bold text-lg text-brand-dark mb-4">Navigating Adobe Photoshop For Digital Illustration</h4>
+                    </div>
+                    <div>
+                        <div class="flex items-center justify-between text-xs text-stone-500 mb-4 pb-4 border-b border-stone-100">
+                            <span><i class="fa-solid fa-play mr-1.5 text-brand-green"></i> 3 Videos</span>
+                            <span><i class="fa-solid fa-user-group mr-1.5 text-brand-green"></i> 20 Participants</span>
+                        </div>
+                        <button onclick="openModal('Navigating Adobe Photoshop For Digital Illustration')" class="w-full text-right font-serif text-xs font-bold tracking-wider text-brand-green hover:text-brand-dark uppercase">View More &rarr;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Banner -->
+        <div class="bg-brand-green rounded-3xl p-8 sm:p-12 text-center text-white space-y-4">
+            <h3 class="font-serif text-2xl sm:text-3xl font-bold">Want to access more videos?</h3>
+            <p class="max-w-xl mx-auto text-stone-200 text-sm">Create an ArtClass101 account to access exclusive content and different learning tools from your chosen courses! Don't worry, it's free!</p>
+            <button onclick="openModal('Sign Up Form')" class="bg-white text-brand-dark hover:bg-brand-sand px-8 py-3.5 rounded-full font-serif font-bold text-xs sm:text-sm tracking-widest uppercase transition-colors inline-block mt-2">
+                Sign Up Now
+            </button>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer id="contact-footer" class="bg-brand-dark text-stone-300 pt-16 pb-12 border-t border-stone-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+
+            <!-- Col 1: Brand Info -->
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-full border border-amber-200/40 flex items-center justify-center overflow-hidden">
+                    <img src="./Favicon Logo.png" alt="Art Class 101 Logo" class="w-full h-full object-contain">
+                </div>
+                <span class="font-serif font-bold text-white text-base tracking-wider">ART CLASS 101</span>
+            </div>
+
+            <!-- Col 2: Navigation Links -->
+            <div>
+                <h4 class="font-serif font-bold text-white text-sm tracking-wider uppercase mb-4 border-b border-stone-700/60 pb-2 inline-block">HOMEPAGE</h4>
+                <ul class="space-y-2 text-xs text-stone-400">
+                    <li><button onclick="navigateTo('home'); scrollToSection('contact-footer')" class="hover:text-amber-200 transition-colors">Contact Us</button></li>
+                    <li><button onclick="navigateTo('home')" class="hover:text-amber-200 transition-colors">Latest Courses</button></li>
+                </ul>
+            </div>
+
+            <!-- Col 3: Programs -->
+            <div>
+                <h4 class="font-serif font-bold text-white text-sm tracking-wider uppercase mb-4 border-b border-stone-700/60 pb-2 inline-block">PROGRAMS</h4>
+                <ul class="space-y-2 text-xs text-stone-400">
+                    <li><button onclick="navigateTo('graphic-design')" class="hover:text-amber-200 transition-colors">Graphic Design</button></li>
+                    <li><button onclick="navigateTo('painting')" class="hover:text-amber-200 transition-colors">Painting</button></li>
+                    <li><button onclick="navigateTo('digital-drawing')" class="hover:text-amber-200 transition-colors">Digital Drawing</button></li>
+                </ul>
+            </div>
+
+            <!-- Col 4: Contact Us -->
+            <div>
+                <h4 class="font-serif font-bold text-white text-sm tracking-wider uppercase mb-4 border-b border-stone-700/60 pb-2 inline-block">CONTACT US</h4>
+                <ul class="space-y-3 text-xs text-stone-400">
+                    <li class="flex items-start gap-2.5">
+                        <i class="fa-solid fa-location-dot text-amber-200 mt-0.5"></i>
+                        <span>Address: 0671 Muntinlupa City, Alabang Blvd. 12 Golden Gate, Philippines</span>
+                    </li>
+                    <li class="flex items-center gap-2.5">
+                        <i class="fa-solid fa-phone text-amber-200"></i>
+                        <span>Tel: +(63) 1567-690-8155</span>
+                    </li>
+                    <li class="flex items-center gap-2.5">
+                        <i class="fa-solid fa-envelope text-amber-200"></i>
+                        <span>Gmail: artclass101@gmail.com</span>
+                    </li>
+                </ul>
+
+                <div class="flex items-center gap-4 mt-6">
+                    <!-- Facebook -->
+                    <a href="https://www.facebook.com/art.class.101.2026"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="w-8 h-8 rounded-full bg-stone-800 hover:bg-brand-green text-stone-300 hover:text-white flex items-center justify-center transition-colors">
+                        <i class="fa-brands fa-facebook-f text-xs"></i>
+                    </a>
+
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com/artclass101_offical/?utm_source=ig_web_button_share_sheet"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="w-8 h-8 rounded-full bg-stone-800 hover:bg-brand-green text-stone-300 hover:text-white flex items-center justify-center transition-colors">
+                        <i class="fa-brands fa-instagram text-xs"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="border-t border-stone-800 pt-6 text-center text-stone-500 text-xs">
+            <p>&copy; 2026 Art Class 101. All rights reserved. Designed for Art Students Worldwide.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- INTERACTIVE MODAL DIALOG (For details/Sign-Up preview) -->
+<div id="custom-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 card-shadow space-y-4 relative">
+        <button onclick="closeModal()" class="absolute top-4 right-4 text-stone-400 hover:text-stone-700 text-xl font-bold p-2">&times;</button>
+
+        <div class="w-12 h-12 rounded-full bg-brand-cream border border-brand-sand flex items-center justify-center text-brand-green mx-auto">
+            <i class="fa-solid fa-circle-info text-xl"></i>
+        </div>
+
+        <div class="text-center space-y-2">
+            <h3 id="modal-title" class="font-serif text-xl font-bold text-brand-dark">Item Selected</h3>
+            <p id="modal-desc" class="text-stone-600 text-xs sm:text-sm">You are viewing details for this lesson or program. Sign up to unlock full HD video access!</p>
+        </div>
+
+        <form onsubmit="handleModalSubmit(event)" class="space-y-3 pt-2">
+            <div>
+                <input type="email" placeholder="Enter your email" required class="w-full px-4 py-3 rounded-xl border border-stone-200 text-sm focus:outline-none focus:border-brand-green">
+            </div>
+            <button type="submit" class="w-full bg-brand-green hover:bg-brand-dark text-white font-serif text-xs font-bold tracking-widest uppercase py-3 rounded-xl transition-colors">
+                Continue & Access
+            </button>
+        </form>
+    </div>
+</div>
+
+<!-- External JavaScript -->
+<script src="script.js" defer></script>
+</body>
+</html>
