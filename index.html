@@ -71,8 +71,8 @@
     </div>
 
 </button>
-                <!-- Navigation Links -->
-    <nav class="hidden md:flex items-center gap-8 font-sans text-lg tracking-wider uppercase font-medium">
+                    <!-- Navigation Links -->
+    <nav class="hidden md:flex items-center gap-8 font-sans text-base tracking-wider uppercase font-medium">
     <button onclick="navigateTo('home')" class="nav-btn transition-colors hover:text-brand-green" data-page="home">HOMEPAGE</button>
     <button onclick="scrollToSection('about-section')" class="nav-btn transition-colors hover:text-brand-green">ABOUT US</button>
     <button onclick="navigateTo('courses')" class="nav-btn transition-colors hover:text-brand-green" data-page="courses">COURSES</button>
@@ -86,13 +86,14 @@
         </div>
 
         <!-- Mobile Navigation Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-stone-200 px-4 pt-2 pb-4 space-y-2 font-sans text-lg">
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-stone-200 px-4 pt-2 pb-4 space-y-2 font-sans text-base">
             <button onclick="navigateTo('home'); toggleMobileMenu()" class="block w-full text-left py-2 hover:text-brand-green">HOMEPAGE</button>
             <button onclick="scrollToSection('about-section'); toggleMobileMenu()" class="block w-full text-left py-2 hover:text-brand-green">ABOUT US</button>
             <button onclick="navigateTo('courses'); toggleMobileMenu()" class="block w-full text-left py-2 hover:text-brand-green">COURSES</button>
             <button onclick="scrollToSection('contact-footer'); toggleMobileMenu()" class="block w-full text-left py-2 hover:text-brand-green">CONTACTS</button>
         </div>
     </header>
+
 
     <!-- MAIN PAGE CONTAINER (SPA Page Views) -->
     <main class="flex-grow">
