@@ -1,3 +1,4 @@
+
 // =================================
 // ART CLASS 101 - JAVASCRIPT
 // =================================
@@ -41,8 +42,24 @@ function navigateTo(pageId) {
 
 
 // SMOOTH SCROLL TO SECTION
+// Including About Us & Contacts
 
 function scrollToSection(sectionId) {
+
+    // Highlight active navigation button
+    const pageKey = sectionId
+        .replace('-section', '')
+        .replace('-footer', '');
+
+    document.querySelectorAll('.nav-btn').forEach(btn => {
+
+        if (btn.getAttribute('data-page') === pageKey) {
+            btn.classList.add('text-brand-green', 'font-bold');
+        } else {
+            btn.classList.remove('text-brand-green', 'font-bold');
+        }
+
+    });
 
     const currentHome = document.getElementById('page-home');
 
@@ -153,4 +170,3 @@ window.addEventListener('DOMContentLoaded', function () {
     navigateTo('home');
 
 });
-
