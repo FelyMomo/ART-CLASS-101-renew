@@ -1,3 +1,4 @@
+
 // =================================
 // ART CLASS 101 - JAVASCRIPT
 // =================================
@@ -135,13 +136,18 @@ function openModal(title) {
     const modalDesc = document.getElementById('modal-desc');
     const customModal = document.getElementById('custom-modal');
 
+    // Update modal title
+    if (modalTitle) {
+        modalTitle.innerText = title;
     }
 
+    // Update modal description
     if (modalDesc) {
         modalDesc.innerText =
-            `Every artist starts as a beginner. Let’s create something meaningful together with Art Class 101. Your creative journey starts here!`;
+            "Every artist starts as a beginner. Let's create something meaningful together with Art Class 101. Your creative journey starts here!";
     }
 
+    // Show modal
     if (customModal) {
         customModal.classList.remove('hidden');
     }
