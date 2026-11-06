@@ -141,7 +141,7 @@ function openModal(title) {
 
     if (modalDesc) {
         modalDesc.innerText =
-            `Start watching "${title}" with Art Class 101. Join over 100+ active students today!`;
+            `"${title}" interested? Every great artist starts somewhere. Take the first step, discover your creativity, and let your imagination come to life with Art Class 101. Your creative journey starts here!`;
     }
 
     if (customModal) {
