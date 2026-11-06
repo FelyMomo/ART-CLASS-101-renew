@@ -1,3 +1,4 @@
+
 // =================================
 // ART CLASS 101 - JAVASCRIPT
 // =================================
@@ -52,21 +53,20 @@ function scrollToSection(sectionId) {
 
         const elem = document.getElementById(sectionId);
 
-        if (elem) {
-            elem.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+        if (!elem) {
+            console.warn(`Section not found: ${sectionId}`);
+            return;
         }
 
-        // Highlight the matching navigation button
-        const pageKey = sectionId
-            .replace('-section', '')
-            .replace('-footer', '');
+        elem.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
 
+        // Highlight About Us navigation button
         document.querySelectorAll('.nav-btn').forEach(btn => {
 
-            if (btn.getAttribute('data-page') === pageKey) {
+            if (btn.getAttribute('data-page') === 'about') {
                 btn.classList.add('text-brand-green', 'font-bold');
             } else {
                 btn.classList.remove('text-brand-green', 'font-bold');
@@ -75,12 +75,12 @@ function scrollToSection(sectionId) {
         });
     };
 
-    // If the user is on another page, return to homepage first
+    // Return to homepage first if currently on another page
     if (currentHome.classList.contains('hidden')) {
 
         navigateTo('home');
 
-        setTimeout(scrollAndHighlight, 150);
+        setTimeout(scrollAndHighlight, 300);
 
     } else {
 
@@ -92,19 +92,14 @@ function scrollToSection(sectionId) {
 
 // MOBILE MENU TOGGLE
 
-const mobileBtn = document.getElementById('mobile-menu-btn');
-const mobileMenu = document.getElementById('mobile-menu');
-
 function toggleMobileMenu() {
+
+    const mobileMenu = document.getElementById('mobile-menu');
 
     if (mobileMenu) {
         mobileMenu.classList.toggle('hidden');
     }
 
-}
-
-if (mobileBtn) {
-    mobileBtn.addEventListener('click', toggleMobileMenu);
 }
 
 
@@ -140,6 +135,7 @@ function closeModal() {
     if (customModal) {
         customModal.classList.add('hidden');
     }
+
 }
 
 
@@ -152,6 +148,7 @@ function handleModalSubmit(e) {
     alert('Thank you! You have successfully registered interest for this course video module.');
 
     closeModal();
+
 }
 
 
@@ -160,5 +157,12 @@ function handleModalSubmit(e) {
 window.addEventListener('DOMContentLoaded', function () {
 
     navigateTo('home');
+
+    // Mobile menu button
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+
+    if (mobileBtn) {
+        mobileBtn.addEventListener('click', toggleMobileMenu);
+    }
 
 });
