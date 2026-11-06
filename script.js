@@ -167,7 +167,7 @@ function handleModalSubmit(e) {
 
     e.preventDefault();
 
-    alert('Thank you! You have successfully registered interest for this course video module.');
+    alert('Thank you! You have successfully registered interest for this course module.');
 
     closeModal();
 
