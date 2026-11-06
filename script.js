@@ -1,4 +1,3 @@
-
 // =================================
 // ART CLASS 101 - JAVASCRIPT
 // =================================
@@ -41,55 +40,51 @@ function navigateTo(pageId) {
 }
 
 
-// SMOOTH SCROLL TO SECTION
-// Including About Us & Contacts
+// SMOOTH SCROLL TO A SECTION ON THE HOMEPAGE
 
 function scrollToSection(sectionId) {
-
-    // Highlight active navigation button
-    const pageKey = sectionId
-        .replace('-section', '')
-        .replace('-footer', '');
-
-    document.querySelectorAll('.nav-btn').forEach(btn => {
-
-        if (btn.getAttribute('data-page') === pageKey) {
-            btn.classList.add('text-brand-green', 'font-bold');
-        } else {
-            btn.classList.remove('text-brand-green', 'font-bold');
-        }
-
-    });
 
     const currentHome = document.getElementById('page-home');
 
     if (!currentHome) return;
 
-    if (currentHome.classList.contains('hidden')) {
-
-        navigateTo('home');
-
-        setTimeout(() => {
-
-            const elem = document.getElementById(sectionId);
-
-            if (elem) {
-                elem.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-
-        }, 100);
-
-    } else {
+    const scrollAndHighlight = () => {
 
         const elem = document.getElementById(sectionId);
 
         if (elem) {
             elem.scrollIntoView({
-                behavior: 'smooth'
+                behavior: 'smooth',
+                block: 'start'
             });
         }
+
+        // Highlight the matching navigation button
+        const pageKey = sectionId
+            .replace('-section', '')
+            .replace('-footer', '');
+
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+
+            if (btn.getAttribute('data-page') === pageKey) {
+                btn.classList.add('text-brand-green', 'font-bold');
+            } else {
+                btn.classList.remove('text-brand-green', 'font-bold');
+            }
+
+        });
+    };
+
+    // If the user is on another page, return to homepage first
+    if (currentHome.classList.contains('hidden')) {
+
+        navigateTo('home');
+
+        setTimeout(scrollAndHighlight, 150);
+
+    } else {
+
+        scrollAndHighlight();
 
     }
 }
@@ -133,7 +128,6 @@ function openModal(title) {
     if (customModal) {
         customModal.classList.remove('hidden');
     }
-
 }
 
 
@@ -146,7 +140,6 @@ function closeModal() {
     if (customModal) {
         customModal.classList.add('hidden');
     }
-
 }
 
 
@@ -159,7 +152,6 @@ function handleModalSubmit(e) {
     alert('Thank you! You have successfully registered interest for this course video module.');
 
     closeModal();
-
 }
 
 
