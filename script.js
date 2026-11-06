@@ -1,4 +1,3 @@
-
 // =================================
 // ART CLASS 101 - JAVASCRIPT
 // =================================
@@ -12,7 +11,7 @@ function navigateTo(pageId) {
     const pages = document.querySelectorAll('.page-view');
 
     pages.forEach(page => {
-        page.classList.add('hidden');
+        page.classLis.add('hidden');
     });
 
     // Show selected page
@@ -93,15 +92,20 @@ function scrollToSection(sectionId) {
 // MOBILE MENU TOGGLE
 
 function toggleMobileMenu() {
+    const menu = document.getElementById("mobile-menu");
+    const button = document.getElementById("mobile-menu-btn");
 
-    const mobileMenu = document.getElementById('mobile-menu');
+    if (!menu || !button) return;
 
-    if (mobileMenu) {
-        mobileMenu.classList.toggle('hidden');
-    }
+    menu.classList.toggle("active");
 
+    const isOpen = menu.classList.contains("active");
+
+    button.setAttribute("aria-expanded", isOpen);
+    button.innerHTML = isOpen
+        ? '<i class="fa-solid fa-xmark"></i>'
+        : '<i class="fa-solid fa-bars"></i>';
 }
-
 
 // MODAL HANDLERS
 
