@@ -1,3 +1,4 @@
+
 // =================================
 // ART CLASS 101 - JAVASCRIPT
 // =================================
@@ -11,7 +12,7 @@ function navigateTo(pageId) {
     const pages = document.querySelectorAll('.page-view');
 
     pages.forEach(page => {
-        page.classLis.add('hidden');
+        page.classList.add('hidden');
     });
 
     // Show selected page
@@ -19,6 +20,24 @@ function navigateTo(pageId) {
 
     if (targetPage) {
         targetPage.classList.remove('hidden');
+    } else {
+        console.warn(`Page not found: page-${pageId}`);
+        return;
+    }
+
+    // Close mobile menu when navigating
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenu) {
+        mobileMenu.classList.remove('active');
+        mobileMenu.classList.add('hidden');
+    }
+
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+
+    if (mobileBtn) {
+        mobileBtn.setAttribute('aria-expanded', 'false');
+        mobileBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
     }
 
     // Scroll to top
@@ -62,7 +81,6 @@ function scrollToSection(sectionId) {
             block: 'start'
         });
 
-        // Highlight About Us navigation button
         document.querySelectorAll('.nav-btn').forEach(btn => {
 
             if (btn.getAttribute('data-page') === 'about') {
@@ -74,7 +92,6 @@ function scrollToSection(sectionId) {
         });
     };
 
-    // Return to homepage first if currently on another page
     if (currentHome.classList.contains('hidden')) {
 
         navigateTo('home');
@@ -92,20 +109,24 @@ function scrollToSection(sectionId) {
 // MOBILE MENU TOGGLE
 
 function toggleMobileMenu() {
-    const menu = document.getElementById("mobile-menu");
-    const button = document.getElementById("mobile-menu-btn");
+
+    const menu = document.getElementById('mobile-menu');
+    const button = document.getElementById('mobile-menu-btn');
 
     if (!menu || !button) return;
 
-    menu.classList.toggle("active");
+    menu.classList.toggle('active');
+    menu.classList.toggle('hidden');
 
-    const isOpen = menu.classList.contains("active");
+    const isOpen = menu.classList.contains('active');
 
-    button.setAttribute("aria-expanded", isOpen);
+    button.setAttribute('aria-expanded', isOpen);
+
     button.innerHTML = isOpen
         ? '<i class="fa-solid fa-xmark"></i>'
         : '<i class="fa-solid fa-bars"></i>';
 }
+
 
 // MODAL HANDLERS
 
