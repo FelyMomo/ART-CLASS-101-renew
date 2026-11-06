@@ -61,71 +61,125 @@ button {
 
 
 /* ==========================================================================
-   HEADER & NAVIGATION BAR
+   HEADER & NAVIGATION BAR - UPDATED
    ========================================================================== */
 
 header {
+    display: block;
     width: 100%;
-    min-height: 75px;
-    background-color: #ffffff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 50px;
+    min-height: 0;
+    padding: 0;
+    background: rgba(255, 255, 255, 0.97);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
-.logo {
+/* Main header row */
+header > div:first-child {
+    width: 100%;
+    max-width: 1280px;
+    height: 80px;
+    margin: 0 auto;
+    padding: 0 30px;
     display: flex;
     align-items: center;
-    gap: 12px;
-    font-weight: 700;
-    font-size: 1.2rem;
-    letter-spacing: 1px;
-    color: #1a2e1a;
-    cursor: pointer;
-    white-space: nowrap;
-}
-
-.logo-icon {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    border: 2px solid #1a2e1a;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.8rem;
-    flex-shrink: 0;
-}
-
-nav ul {
-    display: flex;
-    align-items: center;
-    list-style: none;
+    justify-content: space-between;
     gap: 30px;
 }
 
-nav ul li a {
-    font-family: 'Inria Serif', serif;
-    font-size: 0.95rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    color: #2c3e2c;
-    transition: color 0.3s ease;
-    padding-bottom: 4px;
+/* Logo */
+header > div:first-child > button:first-child {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+    white-space: nowrap;
+    background: transparent;
 }
 
-nav ul li a:hover,
-nav ul li a.active {
+/* Desktop navigation */
+header nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 28px;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+header nav button {
+    background: transparent;
+    color: #1b261b;
+    font-family: 'Alegreya Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    padding: 8px 0;
+    transition: color 0.2s ease;
+}
+
+header nav button:hover {
     color: #5c7a5c;
-    border-bottom: 2px solid #5c7a5c;
 }
 
+/* Mobile menu button */
+#mobile-menu-btn {
+    display: none;
+    background: transparent;
+    color: #1b261b;
+    font-size: 24px;
+    padding: 8px;
+}
 
+/* Mobile navigation */
+#mobile-menu {
+    width: 100%;
+    background: #ffffff;
+    padding: 12px 24px 18px;
+    border-top: 1px solid #e7e5e4;
+}
+
+#mobile-menu button {
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+    background: transparent;
+    color: #1b261b;
+    text-align: left;
+    font-size: 16px;
+}
+
+/* Responsive navigation */
+@media screen and (max-width: 900px) {
+    header > div:first-child {
+        padding: 0 20px;
+    }
+
+    header nav {
+        gap: 16px;
+    }
+
+    header nav button {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    header > div:first-child {
+        height: 72px;
+    }
+
+    header nav {
+        display: none !important;
+    }
+
+    #mobile-menu-btn {
+        display: block;
+    }
+}
 /* ==========================================================================
    SHARED HERO & HEADER BANNERS
    ========================================================================== */
@@ -925,212 +979,5 @@ footer {
         flex-direction: column;
         text-align: center;
         gap: 10px;
-    }
-}
-
-/* =========================================
-   NAVIGATION MENU VISIBILITY FIX
-   ========================================= */
-
-/* Keep desktop navigation visible */
-header nav {
-    display: block !important;
-    width: auto;
-}
-
-header nav ul {
-    display: flex !important;
-    align-items: center;
-    list-style: none;
-}
-
-/* Keep navigation links visible */
-header nav ul li {
-    display: block !important;
-}
-
-header nav ul li a,
-header nav ul li button {
-    display: inline-block;
-    visibility: visible;
-    opacity: 1;
-}
-
-/* Mobile navigation */
-@media screen and (max-width: 768px) {
-
-    header {
-        flex-direction: row;
-        justify-content: space-between;
-        flex-wrap: wrap;
-    }
-
-    header nav {
-        width: 100%;
-    }
-
-    header nav ul {
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 12px 18px;
-    }
-
-}
-
-/* Do not hide navigation when fixing page visibility */
-header nav,
-header nav ul {
-    visibility: visible;
-}
-/* =========================================
-   ART CLASS 101 - NAVIGATION FIX
-========================================= */
-
-.site-header {
-    position: sticky;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    background: rgba(255, 255, 255, 0.97);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid #e7e5e4;
-}
-
-.nav-container {
-    width: 100%;
-    max-width: 1280px;
-    height: 80px;
-    margin: 0 auto;
-    padding: 0 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-/* LOGO */
-
-.logo-button {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    text-align: left;
-    flex-shrink: 0;
-}
-
-.logo-button img {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-}
-
-.logo-title {
-    display: block;
-    color: #1b261b;
-    font-family: "Instrument Serif", serif;
-    font-size: 20px;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
-.logo-subtitle {
-    display: block;
-    color: #78716c;
-    font-size: 10px;
-    letter-spacing: 2px;
-}
-
-/* DESKTOP NAVIGATION */
-
-.desktop-nav {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-}
-
-.desktop-nav button {
-    display: inline-block;
-    border: none;
-    background: transparent;
-    color: #1b261b;
-    font-family: "Alegreya Sans", sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: color 0.2s ease;
-}
-
-.desktop-nav button:hover {
-    color: #4a5d4a;
-}
-
-/* MOBILE MENU BUTTON */
-
-.mobile-menu-btn {
-    display: none;
-    border: none;
-    background: transparent;
-    color: #1b261b;
-    font-size: 25px;
-    padding: 8px;
-    cursor: pointer;
-}
-
-/* MOBILE NAVIGATION */
-
-.mobile-nav {
-    display: none;
-    width: 100%;
-    background: white;
-    border-top: 1px solid #e7e5e4;
-    padding: 12px 24px 18px;
-}
-
-.mobile-nav.active {
-    display: flex;
-    flex-direction: column;
-}
-
-.mobile-nav button {
-    display: block;
-    width: 100%;
-    padding: 12px 0;
-    border: none;
-    background: transparent;
-    color: #1b261b;
-    text-align: left;
-    font-family: "Alegreya Sans", sans-serif;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.mobile-nav button:hover {
-    color: #4a5d4a;
-}
-
-/* RESPONSIVE */
-
-@media (max-width: 767px) {
-    .nav-container {
-        height: 72px;
-        padding: 0 18px;
-    }
-
-    .desktop-nav {
-        display: none;
-    }
-
-    .mobile-menu-btn {
-        display: block;
-    }
-}
-
-@media (min-width: 768px) {
-    .mobile-menu-btn,
-    .mobile-nav {
-        display: none !important;
     }
 }
