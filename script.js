@@ -1,4 +1,3 @@
-
 // =================================
 // ART CLASS 101 - JAVASCRIPT
 // =================================
@@ -179,18 +178,12 @@ function handleModalSubmit(e) {
 
 }
 
-
+// =================================
 // INITIAL SETUP
+// =================================
 
 window.addEventListener('DOMContentLoaded', function () {
 
     navigateTo('home');
-
-    // Mobile menu button
-    const mobileBtn = document.getElementById('mobile-menu-btn');
-
-    if (mobileBtn) {
-        mobileBtn.addEventListener('click', toggleMobileMenu);
-    }
 
 });
