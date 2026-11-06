@@ -135,13 +135,11 @@ function openModal(title) {
     const modalDesc = document.getElementById('modal-desc');
     const customModal = document.getElementById('custom-modal');
 
-    if (modalTitle) {
-        modalTitle.innerText = title;
     }
 
     if (modalDesc) {
         modalDesc.innerText =
-            `Interested? Every great artist starts somewhere. Take the first step, discover your creativity, and let your imagination come to life with Art Class 101. Your creative journey starts here!`;
+            `Every artist starts as a beginner. Let’s create something meaningful together with Art Class 101. Your creative journey starts here!`;
     }
 
     if (customModal) {
