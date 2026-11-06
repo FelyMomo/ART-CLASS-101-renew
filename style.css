@@ -6,7 +6,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,300;0,400;0,700;1,400&family=Allison&family=Inria+Serif:wght@400;700&family=Instrument+Serif&display=swap');
 
 
-/* --- Reset & Base Styles --- */
+/* ==========================================================================
+   RESET & BASE STYLES
+   ========================================================================== */
+
 * {
     margin: 0;
     padding: 0;
@@ -37,7 +40,30 @@ button {
 }
 
 
-/* --- Header & Navigation Bar --- */
+/* ==========================================================================
+   PAGE VISIBILITY FIX
+   Matches the HTML and JavaScript
+   ========================================================================== */
+
+.page-view {
+    display: block;
+}
+
+.page-view.hidden,
+.hidden {
+    display: none !important;
+}
+
+/* Ensure only the selected page is displayed */
+.page-view:not(.hidden) {
+    display: block;
+}
+
+
+/* ==========================================================================
+   HEADER & NAVIGATION BAR
+   ========================================================================== */
+
 header {
     width: 100%;
     min-height: 75px;
@@ -100,17 +126,10 @@ nav ul li a.active {
 }
 
 
-/* --- Page Management --- */
-.page {
-    display: none;
-}
+/* ==========================================================================
+   SHARED HERO & HEADER BANNERS
+   ========================================================================== */
 
-.page.active {
-    display: block;
-}
-
-
-/* --- Shared Hero & Header Banners --- */
 .hero-home {
     position: relative;
     height: 80vh;
@@ -174,7 +193,10 @@ nav ul li a.active {
 }
 
 
-/* --- Course Specific Banners --- */
+/* ==========================================================================
+   COURSE SPECIFIC BANNERS
+   ========================================================================== */
+
 .category-hero {
     position: relative;
     height: 300px;
@@ -214,7 +236,10 @@ nav ul li a.active {
 }
 
 
-/* --- Section Layouts --- */
+/* ==========================================================================
+   SECTION LAYOUTS
+   ========================================================================== */
+
 .section {
     padding: 70px 80px;
 }
@@ -245,9 +270,17 @@ nav ul li a.active {
 .section-dark .section-subtitle {
     color: #cccccc;
 }
+
+
 /* ==========================================================================
-   ABOUT US SECTION STYLES (NEW)
+   ABOUT US SECTION
    ========================================================================== */
+
+#about-section {
+    display: block;
+    scroll-margin-top: 90px;
+}
+
 .about-section {
     padding: 80px;
     background-color: #f8f6f0;
@@ -353,7 +386,12 @@ nav ul li a.active {
     object-fit: cover;
     display: block;
 }
-/* --- Card Grids & Video Cards --- */
+
+
+/* ==========================================================================
+   CARD GRIDS & VIDEO CARDS
+   ========================================================================== */
+
 .grid-3 {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -431,7 +469,10 @@ nav ul li a.active {
 }
 
 
-/* --- Stats Bar --- */
+/* ==========================================================================
+   STATS BAR
+   ========================================================================== */
+
 .stats-container {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -453,7 +494,10 @@ nav ul li a.active {
 }
 
 
-/* --- Feedback / Testimonials --- */
+/* ==========================================================================
+   FEEDBACK / TESTIMONIALS
+   ========================================================================== */
+
 .feedback-card {
     background-color: #ffffff;
     padding: 30px;
@@ -485,7 +529,10 @@ nav ul li a.active {
 }
 
 
-/* --- Overview Cards (Courses Page) --- */
+/* ==========================================================================
+   OVERVIEW CARDS
+   ========================================================================== */
+
 .overview-card {
     background: #ffffff;
     padding: 50px;
@@ -511,7 +558,10 @@ nav ul li a.active {
 }
 
 
-/* --- Call To Action Box --- */
+/* ==========================================================================
+   CALL TO ACTION BOX
+   ========================================================================== */
+
 .cta-box {
     background-color: #273827;
     color: #ffffff;
@@ -535,7 +585,10 @@ nav ul li a.active {
 }
 
 
-/* --- Footer --- */
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
 footer {
     background-color: #1a271a;
     color: #ffffff;
@@ -597,7 +650,10 @@ footer {
 }
 
 
-/* --- Additional Utility Classes --- */
+/* ==========================================================================
+   ADDITIONAL UTILITY CLASSES
+   ========================================================================== */
+
 .font-script {
     font-family: 'Allison', cursive;
 }
@@ -620,7 +676,9 @@ footer {
    ========================================================================== */
 
 /* --- Tablets --- */
+
 @media screen and (max-width: 1024px) {
+
     header {
         padding: 15px 30px;
     }
@@ -642,6 +700,18 @@ footer {
         padding: 60px 40px;
     }
 
+    .about-section {
+        padding: 60px 40px;
+    }
+
+    .about-container {
+        gap: 35px;
+    }
+
+    .about-heading {
+        font-size: 2.5rem;
+    }
+
     .grid-3 {
         gap: 20px;
     }
@@ -653,7 +723,9 @@ footer {
 
 
 /* --- Mobile Phones --- */
+
 @media screen and (max-width: 768px) {
+
     header {
         flex-direction: column;
         gap: 15px;
@@ -701,6 +773,23 @@ footer {
         padding: 50px 25px;
     }
 
+    .about-section {
+        padding: 50px 25px;
+    }
+
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .about-heading {
+        font-size: 2.4rem;
+    }
+
+    .about-img {
+        height: 350px;
+    }
+
     .section-title {
         font-size: 2.2rem;
     }
@@ -737,7 +826,9 @@ footer {
 
 
 /* --- Small Mobile Phones --- */
+
 @media screen and (max-width: 480px) {
+
     header {
         padding: 15px;
     }
@@ -782,6 +873,18 @@ footer {
 
     .section {
         padding: 40px 18px;
+    }
+
+    .about-section {
+        padding: 40px 18px;
+    }
+
+    .about-heading {
+        font-size: 2rem;
+    }
+
+    .about-img {
+        height: 280px;
     }
 
     .section-title {
