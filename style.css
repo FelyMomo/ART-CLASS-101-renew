@@ -245,8 +245,114 @@ nav ul li a.active {
 .section-dark .section-subtitle {
     color: #cccccc;
 }
+/* ==========================================================================
+   ABOUT US SECTION STYLES (NEW)
+   ========================================================================== */
+.about-section {
+    padding: 80px;
+    background-color: #f8f6f0;
+}
 
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
 
+.about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.about-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Inria Serif', serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #c59b27;
+    text-transform: uppercase;
+}
+
+.about-heading {
+    font-family: 'Instrument Serif', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #1b261b;
+    line-height: 1.15;
+}
+
+.about-text {
+    font-family: 'Alegreya Sans', sans-serif;
+    font-size: 1rem;
+    color: #555555;
+    line-height: 1.7;
+}
+
+.about-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.btn-about-dark {
+    background-color: #1b261b;
+    color: #ffffff;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-family: 'Inria Serif', serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.btn-about-dark:hover {
+    background-color: #2d3b2d;
+    transform: translateY(-2px);
+}
+
+.btn-about-outline {
+    background-color: #ffffff;
+    color: #1b261b;
+    border: 1px solid #d1cbbe;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-family: 'Inria Serif', serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.btn-about-outline:hover {
+    background-color: #f0ece1;
+    transform: translateY(-2px);
+}
+
+.about-image-wrapper {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e8dfd1;
+}
+
+.about-img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    display: block;
+}
 /* --- Card Grids & Video Cards --- */
 .grid-3 {
     display: grid;
