@@ -1,4 +1,3 @@
-
 /* ==========================================================================
    ART CLASS 101 - GLOBAL STYLESHEET (style.css)
    ========================================================================== */
@@ -133,7 +132,11 @@ header nav button:hover {
     color: #5c7a5c;
 }
 
-/* Mobile menu toggle */
+
+/* =================================
+   MOBILE MENU TOGGLE
+================================= */
+
 #mobile-menu-btn {
     display: none;
     align-items: center;
@@ -150,16 +153,22 @@ header nav button:hover {
     display: none !important;
 }
 
-/* Show mobile menu when JavaScript removes the hidden class */
+/* Mobile navigation - visible when opened */
 #mobile-menu:not(.hidden) {
-    display: block;
+    display: flex;
+    flex-direction: column;
     width: 100%;
     background: #ffffff;
     padding: 12px 24px 18px;
     border-top: 1px solid #e7e5e4;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.04);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 9999;
 }
 
+/* Mobile navigation buttons */
 #mobile-menu button {
     display: block;
     width: 100%;
@@ -174,6 +183,38 @@ header nav button:hover {
 
 #mobile-menu button:hover {
     color: #5c7a5c;
+}
+
+/* Desktop */
+@media screen and (min-width: 768px) {
+    #mobile-menu,
+    #mobile-menu-btn {
+        display: none !important;
+    }
+}
+
+/* Mobile */
+@media screen and (max-width: 767px) {
+
+    header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    header > div:first-child {
+        height: 72px;
+        padding: 0 20px;
+        gap: 12px;
+    }
+
+    header nav:not(#mobile-menu) {
+        display: none !important;
+    }
+
+    #mobile-menu-btn {
+        display: inline-flex !important;
+    }
 }
 
 /* Desktop: keep mobile navigation hidden */
