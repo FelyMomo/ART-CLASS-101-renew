@@ -141,7 +141,7 @@ function openModal(title) {
 
     if (modalDesc) {
         modalDesc.innerText =
-            `"${title}" interested? Every great artist starts somewhere. Take the first step, discover your creativity, and let your imagination come to life with Art Class 101. Your creative journey starts here!`;
+            `Interested? Every great artist starts somewhere. Take the first step, discover your creativity, and let your imagination come to life with Art Class 101. Your creative journey starts here!`;
     }
 
     if (customModal) {
