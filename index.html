@@ -54,49 +54,44 @@
     </script>
 </head>
     <body>
-    <!-- TOP NAVIGATION BAR -->
-    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-stone-200">
-        <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Logo -->
-            <!-- Logo -->
-<button onclick="navigateTo('home')" class="flex items-center gap-3 group text-left">
-
-   <img src="./Favicon Logo.png"
-     alt="Art Class 101 Logo"
-     class="w-10 h-10 object-contain">
-
-    <div>
-        <span class="font-serif font-bold text-lg tracking-wider text-brand-dark block">ART CLASS 101</span>
-        <span class="text-[10px] tracking-widest text-stone-500 uppercase block">The Creatives</span>
-    </div>
-
-</button>
-                    <!-- Navigation Links -->
-    <nav class="hidden md:flex items-center gap-8 font-sans text-base tracking-wider uppercase font-medium">
-    <button onclick="navigateTo('home')" class="nav-btn transition-colors hover:text-brand-green" data-page="home">HOMEPAGE</button>
-    <button onclick="scrollToSection('about-section')" class="nav-btn transition-colors hover:text-brand-green" data-page="about">ABOUT US</button>
-    <button onclick="navigateTo('courses')" class="nav-btn transition-colors hover:text-brand-green" data-page="courses">COURSES</button>
-    <button onclick="scrollToSection('contact-footer')" class="nav-btn transition-colors hover:text-brand-green">CONTACTS</button>
-</nav>
-
-            <!-- Mobile Menu Toggle -->
-            <button id="mobile-menu-btn" class="md:hidden text-stone-700 hover:text-brand-green p-2">
-                <i class="fa-solid fa-bars text-2xl"></i>
-            </button>
-        </div>
-
-        <!-- Mobile Navigation Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-stone-200 px-4 pt-2 pb-4 space-y-2 font-sans text-base">
-            <button onclick="navigateTo('home'); toggleMobileMenu()" class="block w-full text-left py-2 hover:text-brand-green">HOMEPAGE</button>
-            <button onclick="scrollToSection('about-section'); toggleMobileMenu()" class="block w-full text-left py-2 hover:text-brand-green">ABOUT US</button>
-            <button onclick="navigateTo('courses'); toggleMobileMenu()" class="block w-full text-left py-2 hover:text-brand-green">COURSES</button>
-            <button onclick="scrollToSection('contact-footer'); toggleMobileMenu()" class="block w-full text-left py-2 hover:text-brand-green">CONTACTS</button>
-        </div>
+        <!-- TOP NAVIGATION BAR -->
+        <header class="site-header">
+            <div class="nav-container">
+                <!-- Logo -->
+                <button onclick="navigateTo('home')" class="logo-button">
+                    <img src="./Favicon Logo.png" alt="Art Class 101 Logo">
+                    <div>
+                        <span class="logo-title">ART CLASS 101</span>
+                        <span class="logo-subtitle">THE CREATIVES</span>
+                    </div>
+                </button>
+                <!-- Desktop Navigation -->
+                <nav class="desktop-nav">
+                    <button onclick="navigateTo('home')">HOMEPAGE</button>
+                    <button onclick="scrollToSection('about-section')">ABOUT US</button>
+                    <button onclick="navigateTo('courses')">COURSES</button>
+                    <button onclick="scrollToSection('contact-footer')">CONTACTS</button>
+                </nav>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn"
+                    class="mobile-menu-btn"
+                    onclick="toggleMobileMenu()"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+            <!-- Mobile Navigation -->
+            <nav id="mobile-menu" class="mobile-nav">
+                <button onclick="navigateTo('home'); toggleMobileMenu()">HOMEPAGE</button>
+                <button onclick="scrollToSection('about-section'); toggleMobileMenu()">ABOUT US</button>
+                <button onclick="navigateTo('courses'); toggleMobileMenu()">COURSES</button>
+                <button onclick="scrollToSection('contact-footer'); toggleMobileMenu()">CONTACTS</button>
+            </nav>
+        </header>
     </header>
-
-
-    <!-- MAIN PAGE CONTAINER (SPA Page Views) -->
-    <main class="flex-grow">
+        <!-- MAIN PAGE CONTAINER (SPA Page Views) -->
+        <main class="flex-grow">
 
         <!-- ================= PAGE 1: HOMEPAGE ================= -->
         <section id="page-home" class="page-view space-y-16 pb-16">
