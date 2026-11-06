@@ -733,9 +733,6 @@ footer {
 
 @media screen and (max-width: 1024px) {
 
-    header {
-        padding: 15px 30px;
-    }
 
     nav ul {
         gap: 18px;
@@ -779,12 +776,6 @@ footer {
 /* --- Mobile Phones --- */
 
 @media screen and (max-width: 768px) {
-
-    header {
-        flex-direction: column;
-        gap: 15px;
-        padding: 15px 20px;
-    }
 
     nav {
         width: 100%;
