@@ -982,3 +982,155 @@ header nav,
 header nav ul {
     visibility: visible;
 }
+/* =========================================
+   ART CLASS 101 - NAVIGATION FIX
+========================================= */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #e7e5e4;
+}
+
+.nav-container {
+    width: 100%;
+    max-width: 1280px;
+    height: 80px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* LOGO */
+
+.logo-button {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    text-align: left;
+    flex-shrink: 0;
+}
+
+.logo-button img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.logo-title {
+    display: block;
+    color: #1b261b;
+    font-family: "Instrument Serif", serif;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.logo-subtitle {
+    display: block;
+    color: #78716c;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+/* DESKTOP NAVIGATION */
+
+.desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.desktop-nav button {
+    display: inline-block;
+    border: none;
+    background: transparent;
+    color: #1b261b;
+    font-family: "Alegreya Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.desktop-nav button:hover {
+    color: #4a5d4a;
+}
+
+/* MOBILE MENU BUTTON */
+
+.mobile-menu-btn {
+    display: none;
+    border: none;
+    background: transparent;
+    color: #1b261b;
+    font-size: 25px;
+    padding: 8px;
+    cursor: pointer;
+}
+
+/* MOBILE NAVIGATION */
+
+.mobile-nav {
+    display: none;
+    width: 100%;
+    background: white;
+    border-top: 1px solid #e7e5e4;
+    padding: 12px 24px 18px;
+}
+
+.mobile-nav.active {
+    display: flex;
+    flex-direction: column;
+}
+
+.mobile-nav button {
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+    border: none;
+    background: transparent;
+    color: #1b261b;
+    text-align: left;
+    font-family: "Alegreya Sans", sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.mobile-nav button:hover {
+    color: #4a5d4a;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 767px) {
+    .nav-container {
+        height: 72px;
+        padding: 0 18px;
+    }
+
+    .desktop-nav {
+        display: none;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+}
+
+@media (min-width: 768px) {
+    .mobile-menu-btn,
+    .mobile-nav {
+        display: none !important;
+    }
+}
