@@ -100,11 +100,13 @@ function scrollToSection(sectionId) {
     } else {
 
         scrollAndHighlight();
-
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenu) {
+            mobileMenu.classList.remove('active');
+            mobileMenu.classList.add('hidden');
+        }
     }
 }
-
-
 // MOBILE MENU TOGGLE
 
 function toggleMobileMenu() {
